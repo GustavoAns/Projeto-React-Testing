@@ -81,4 +81,13 @@ describe('Testa o componente Pokedex', () => {
     // console.log(tiposRenderizados);
     expect(tiposRenderizados).toStrictEqual(tipos);
   });
+
+  test('Teste se a pokédex contém um botão para resetar o filtro', () => {
+    renderComRotas(
+      <Pokedex pokemons={ pokemons } isPokemonFavoriteById={ idFavorited } />,
+    );
+
+    const button = screen.getByRole('button', { name: 'All' });
+    expect(button).toHaveTextContent('All');
+  });
 });
